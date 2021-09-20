@@ -10,7 +10,7 @@ export default class CartController extends Controller {
     }
 
     get total(){
-        return this.subtotal + this.tax; 
+        return this.subtotal + this.tax;
     }
 
     get subtotal(){

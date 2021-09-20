@@ -5,3 +5,5 @@ create route
     path param > add the model inside routes/route reference name.
     remove route
     > ember destroy route clothes/index   // ember destroy route clothes/t-shirt && ember destroy route clothes
+
+    Component -? reusable and configurable unit.
