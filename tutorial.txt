@@ -7,3 +7,45 @@ create route
     > ember destroy route clothes/index   // ember destroy route clothes/t-shirt && ember destroy route clothes
 
     Component -? reusable and configurable unit.
+---> Tracked properties and Getter.
+    @tracked added to the property inside a component, it is to identify and update the latest changes to the property
+
+    @tracked firstName = "gokul";
+    @tracker secondName = "nb";
+    get fullName(){
+      return firstName + lastName;
+    }
+  By this we can get the initialized name to the dom (since everything is checked and upto date).
+  <h1> this.fullName</h1>
+
+  action is a method which has @action decorator which can be used in the template.
+  eg in js file:
+      @tracked number = 0;
+        @action
+        addNumber(){
+        this.number = this.number + 1;
+        }
+     in DOM:
+     <h1> Number {{this.name}}
+     <button {{ on "click" this.addNumber}}> add </button>
+
+  ------>to create component classhjs
+          ember g component-class product
+
+  ---- properties and arguments:
+
+      >properties : property is the variable declared in the current class.
+      > arguments: it's the argument pass from the parent component.
+
+      export default class Parent extends Component{
+        propP = 1;
+      }
+      export default class Child extends Component{
+        propC = 1;
+      }
+
+      Parent.hbs
+          <Child @propP={{this.propP}}>
+      Child.hbs
+          <h1>Child Property : {{this.propChild}}</h1>
+          <h1>Parent Property : {{@propParent}}</h1>
