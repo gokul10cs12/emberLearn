@@ -48,4 +48,4 @@ create route
           <Child @propP={{this.propP}}>
       Child.hbs
           <h1>Child Property : {{this.propChild}}</h1>
-          <h1>Parent Property : {{@propParent}}</h1>
+          <h1>Parent Property : {{@propP}}</h1>
