@@ -49,3 +49,49 @@ create route
       Child.hbs
           <h1>Child Property : {{this.propChild}}</h1>
           <h1>Parent Property : {{@propP}}</h1>
+
+  ----> ember helpers
+      syntax: {{helper ... (helper2 ... (helper 3))}}
+      1. {{on
+      2. {{concat : concat multiple strings
+          syntax: class={{concat "active-" @color}}
+      3. {{get this.product "name"
+          , first argument is the object and second one is the key
+      4. {{hash
+          <Child @user={{hash                similar to => user = { firstname ="Gokul", secondName: "nb"}
+                      firstName="Shawn"
+                      lastName="Chen"
+                      }}
+          />
+      5.  {{let (concat this.firstName this.lastName) as |fullName|}} --> concat two string
+          to user the fullName temporary variable in mutple places..
+          {{#let (concat this.firstName this.lastName) as |fullName|}}
+          <h1>{{fullName}}</h1>
+          {{/let}}   ... add # to let helper tag and close the helper with \
+      6. class={{if this.isRed 'red' 'black'}}
+          if as a block {{$if this.isRed}}
+                        <h1>Red</h1>
+                        {{/if}}
+          if else:   {{#if this.isRed}}
+                         <h1>Red</h1>
+                     {{else if this.isBlue}}
+                          <h1>blue</h1>
+                     {{else}}
+                         <h1>Black</h1>
+                      {{/if}}
+      7.  unless opposite to if, unless chooses falsey
+                        {{#unless this.isRed}}
+                               <h1>Black</h1>
+                        {{else unless this.isBlue}}
+                                <h1>Red</h1>
+                         {{else if this.isBlue}}
+                                <h1>blue</h1>
+                         {{else}}
+                               <h1>Black</h1>
+                         {{/unless}}
+      8. each --> just like for loop
+          {{# each list as |item|}}
+            <h1>{{item.name}}</h1>
+            <h2>{{item.description}}<h2>
+          {{/each}}
+
