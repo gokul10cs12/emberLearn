@@ -3,16 +3,14 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class ItemController extends Controller {
-  @tracked color = "red";
+  @tracked color = this.model.colors[0].color;
 
   get imageName() {
-    let path = `/asset/images/beats-solo-${this.color}.png`;
-    return path;
+    return this.model.colors.find(({ color }) => color === this.color).image;
   }
 
   @action
   changeColor(color) {
     this.color = color;
-    console.log('color now:', color);
   }
 }

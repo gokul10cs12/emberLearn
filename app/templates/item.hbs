@@ -1,15 +1,17 @@
 <GeneralContainer>
   <div class="product item-details-page">
     <Product::Image @image={{this.imageName}}/>
-    <Product::Details @color={{this.color}} @changeColor={{this.changeColor}} />
+    <Product::Details  @colors={{this.model.colors}}
+            @color={{this.color}}
+                      @changeColor={{this.changeColor}} />
   </div>
 
   <h5 class="mt-5">Features</h5>
   <ul>
-    <li>Feature 1</li>
-    <li>Feature 2</li>
-    <li>Feature 3</li>
-    <li>Feature 4</li>
+      {{#each this.model.features as |item|}}
+        <li>{{item}}</li>
+      {{/each}}
   </ul>
+
 
 </GeneralContainer>

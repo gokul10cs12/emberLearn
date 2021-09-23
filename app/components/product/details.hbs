@@ -14,10 +14,11 @@
   <div>
     <h5>Color</h5>
     <div class="product-colors active-{{@color}}">
-      <span class="product-color color-red"
-        {{on "click" (fn @changeColor "red")}}> </span>
-      <span class="product-color color-black"
-        {{on "click" (fn @changeColor "black")}}> </span>
+      {{#each @colors as |productColor|}}
+        <span class="product-color color-{{productColor.color}}"
+          {{on "click" (fn @changeColor productColor.color)}}> </span>
+        {{/each}}
+
     </div>
   </div>
 </div>
