@@ -9,9 +9,12 @@
     </div>
   </section>
 
-  <section>
-    <del class ="small text-black-50">250 INR</del>
+  <section class={{unless @isDetails 'h4'}}>
+    <del class ="small text-black-50">{{currency @price.original}}</del>
+    <i class="text-danger font-weight-bold">{{currency @price.current}}</i>
   </section>
+
+  {{#if @isDetails}}
   <div>
     <h5>Color</h5>
     <div class="product-colors active-{{@color}}">
@@ -22,4 +25,5 @@
 
     </div>
   </div>
+    {{/if}}
 </div>

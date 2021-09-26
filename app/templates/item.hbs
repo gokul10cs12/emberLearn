@@ -1,9 +1,15 @@
 <GeneralContainer>
-  <div class="product item-details-page">
-    <Product::Image @src={{this.imageName}}/>
-    <Product::Details  @colors={{this.model.colors}}
+  <div class="product item-details-page {{if this.zoomImage 'is-zoom'}}">
+    <Product::Image @src={{this.imageName}}
+                    @toggleZoom={{this.toggleZoom}}
+    />
+    <Product::Details
+            @isDetails={{true}}
+            @colors={{this.model.colors}}
             @color={{this.color}}
-                      @changeColor={{this.changeColor}} />
+            @name={{this.model.name}}
+            @price={{this.model.price}}
+            @changeColor={{this.changeColor}} />
   </div>
 
   <h5 class="mt-5">Features</h5>
@@ -12,6 +18,5 @@
         <li>{{item}}</li>
       {{/each}}
   </ul>
-
 
 </GeneralContainer>

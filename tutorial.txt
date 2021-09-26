@@ -95,3 +95,30 @@ create route
             <h2>{{item.description}}<h2>
           {{/each}}
 
+  -----> Custom helpers
+  Create custom helpers :> ember g helper currency
+        export default helper(function currency(positional, currency) {
+          const [number] = positional;
+          const {sign = "$"} = currency;
+          return `${sign}${dollars}${cents}`;
+        });
+
+    In DOM
+       <span class="col">{{currency this.tax sign="$"}}</span>
+
+    we can also define helpers with class---->
+
+          export default class currency extends Helper {
+            compute(positional, currency = {}) {
+              const [number] = positional;
+              const {sign = "$"} = currency;
+
+              const dollars = Math.floor(number);
+              let cents = Math.floor(number * 100 % 100);
+
+              if (cents.toString().length === 1) {
+                cents = '0' + cents;
+              }
+              return `${sign}${dollars}${cents}`;
+            }
+          }
