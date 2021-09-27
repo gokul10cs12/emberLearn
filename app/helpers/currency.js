@@ -11,6 +11,6 @@ export default class currency extends Helper {
     if (cents.toString().length === 1) {
       cents = '0' + cents;
     }
-    return `${sign}${dollars}${cents}`;
+    return `${sign}${dollars}.${cents}`;
   }
 }
