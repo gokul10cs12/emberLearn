@@ -15,7 +15,6 @@ export default class CartController extends Controller {
 
   get subtotal() {
     return this.model.reduce((acc, item) => {
-      console.log('a=', acc, 'b=', item);
       return acc + item.price;
     }, 0);
   }
