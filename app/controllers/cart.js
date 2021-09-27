@@ -1,9 +1,8 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
 export default class CartController extends Controller {
-  // subtotal = 12;
-  // tax = 15;
-  // total = 0;
+  @service('shopping-cart') cartItem;
 
   get tax() {
     return 0.09 * this.subtotal;

@@ -32,7 +32,7 @@ create route
   ------>to create component classhjs
           ember g component-class product
 
-  ---- properties and arguments:
+  ---- properties and arguments: 
 
       >properties : property is the variable declared in the current class.
       > arguments: it's the argument pass from the parent component.
@@ -122,3 +122,25 @@ create route
               return `${sign}${dollars}${cents}`;
             }
           }
+
+-----> Services
+    A ember service is an object that live throughout the whole life of an ember application.
+      - We can access service from different components.
+      - From different routes as well.
+      - Additionally, services can communicate with each other.
+
+    To create a service.
+    ember g service shopping-cart
+
+    defining service in  controller
+    import {inject as service} from '@ember/service';
+    class{
+    @service('shopping-cart') cartItem; // in case if we want to use another name
+    //another/default method
+    @service shoppingCart
+    }
+
+>>>>> this.args --> this is the argument passed to a component from child component
+----> to create a component class js for an inner component
+
+    ember g component-class product/details

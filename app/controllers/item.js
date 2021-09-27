@@ -15,7 +15,7 @@ export default class ItemController extends Controller {
   }
 
   @action
-  toggleZoom(){
+  toggleZoom() {
     this.zoomImage = !this.zoomImage;
   }
 }
