@@ -15,7 +15,7 @@ export default class CartController extends Controller {
   get subtotal() {
     return this.cartItem.itemList.reduce((acc, item) => {
       return acc + item.price * item.count;
-    },0);
+    }, 0);
   }
  @action
   updateItemCount(item, event){
