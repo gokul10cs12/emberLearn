@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-
+import { action } from '@ember/object';
 export default class CartController extends Controller {
   @service('shopping-cart') cartItem;
 
@@ -13,8 +13,18 @@ export default class CartController extends Controller {
   }
 
   get subtotal() {
-    return this.model.reduce((acc, item) => {
-      return acc + item.price;
-    }, 0);
+    return this.cartItem.itemList.reduce((acc, item) => {
+      return acc + item.price * item.count;
+    },0);
+  }
+ @action
+  updateItemCount(item, event){
+    const count = event.target.value;
+    item.count = count;
+    if (count >= 1) {
+      item.count = count;
+    } else {
+      item.count = 0;
+    }
   }
 }
