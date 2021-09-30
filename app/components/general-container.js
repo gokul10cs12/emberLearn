@@ -5,7 +5,7 @@ export default class GeneralContainerComponent extends Component {
   @service shoppingCart;
 
   get itemCount() {
-    let items= 0;
+    let items = 0;
     this.shoppingCart.itemList.forEach((item) => {
       console.log(item.count);
       items += item.count;

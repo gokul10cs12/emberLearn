@@ -25,7 +25,7 @@ export default class ShoppingCartService extends Service {
       alternate way to add the content to list
     * */
 
-    const itemExist = this.itemList.find( ({name, color}) =>{
+    const itemExist = this.itemList.find(({ name, color }) => {
       return name === item.name && color === item.color;
     });
 
@@ -33,13 +33,13 @@ export default class ShoppingCartService extends Service {
       itemExist.count += 1;
     } else {
       this.itemList = [
-        ...this.itemList, new Item(
-        {
+        ...this.itemList,
+        new Item({
           ...item,
           count: 1,
-        })];
+        }),
+      ];
     }
     console.log(this.itemList);
   }
-
 }

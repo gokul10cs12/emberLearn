@@ -17,8 +17,8 @@ export default class CartController extends Controller {
       return acc + item.price * item.count;
     }, 0);
   }
- @action
-  updateItemCount(item, event){
+  @action
+  updateItemCount(item, event) {
     const count = event.target.value;
     item.count = count;
     if (count >= 1) {

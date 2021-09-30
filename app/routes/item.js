@@ -1,5 +1,7 @@
 import Route from '@ember/routing/route';
+import {inejct as service} from '@ember/service';
 export default class ItemRoute extends Route {
+  @service store;
   async model(param) {
     const { item_id } = param;
 

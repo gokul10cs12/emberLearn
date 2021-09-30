@@ -144,3 +144,10 @@ create route
 ----> to create a component class js for an inner component
 
     ember g component-class product/details
+
+
+---->ember data:
+      Ember data is build around the idea of organizing ur app's data into model objects.
+      These objects represent units of information that our application presents to the user.
+
+      to create a model-> ember g model <model_name>
