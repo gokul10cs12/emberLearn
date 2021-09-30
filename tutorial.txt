@@ -151,3 +151,5 @@ create route
       These objects represent units of information that our application presents to the user.
 
       to create a model-> ember g model <model_name>
+
+Adapters and serializers:
