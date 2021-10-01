@@ -1,7 +1,12 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class UserRoute extends Route {
-  model(){
-    return this.store.findAll("product");
+  @service store;
+  async model() {
+    let data = await this.store.findAll('user');
+    console.log(data);
+
+    return data;
   }
 }
